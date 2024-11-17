@@ -1,0 +1,24 @@
+class Calculator:
+  def calculate(self, expression: str) -> float:
+    try:
+      result = eval(expression, {}, {})
+      if not isinstance(result, (int, float)):
+        raise CalculatorError("Неверный результат. Ожидалось число.")
+      return result
+    except (SyntaxError, NameError, ZeroDivisionError) as error:
+        raise CalculatorError(f"Ошибка в выражении: {error}")
+    except Exception as error:
+        raise CalculatorError(f"Неизвестная ошибка: {error}")
+  def main():
+    calc = Calculator()
+    while True:
+      expression = input("Введите выражение (или 'exit' для выхода): ")
+      if expression.lower() == 'exit':
+          break
+      try:
+        result = calc.calculate(expression)
+        print(f"Результат: {result}")
+      except CalculatorError as error:
+        print(error)
+
+main()
