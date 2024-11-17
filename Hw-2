@@ -1,0 +1,28 @@
+class vehicles:
+  def __init__(self,color,engine,weight,year,fuel_percentage):
+    self.color=color
+    self.engine=engine
+    self.weight=weight
+    self.year=year
+    self.fuel_percentage=fuel_percentage
+  def vehicle_info(self):
+    return f"Цвет: {self.color}, двигатель: {self.engine}, вес: {self.weight}, год выпуска: {self.year}."
+  def fuel_level(self):
+    return f"Текущий уровень топлива {self.fuel_percentage}%"
+  def engine_start(self):
+    engine=1
+    return 'Двигатель заведён'
+  def engine_shutdown(self):
+    engine=0
+    return 'Двигатель выключен'
+class light_cars(vehicles):
+  def __init__(self,trunk):
+    self.trunk=trunk
+  def trunk_close(trunk):
+    return 'Багажник закрыт'
+class truck(vehicles):
+  def __init__(self,cargo_weight,cargo_type):
+    self.cargo_weight=cargo_weight
+    self.cargo_type=cargo_type
+  def cargo_info(self):
+    return f"Тип груза: {cargo_type}. Вес груза{cargo_weight}."
